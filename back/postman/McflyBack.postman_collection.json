@@ -157,7 +157,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/user/5edfb00a5f8d2d873a155dae/addfavourite",
+					"raw": "http://localhost:3000/user/addfavourite/5ee20fb0a2ed7997b72edca4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -165,8 +165,8 @@
 					"port": "3000",
 					"path": [
 						"user",
-						"5edfb00a5f8d2d873a155dae",
-						"addfavourite"
+						"addfavourite",
+						"5ee20fb0a2ed7997b72edca4"
 					]
 				}
 			},
@@ -199,7 +199,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/user/favourites",
+					"raw": "http://localhost:3000/user/favourite",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -207,7 +207,7 @@
 					"port": "3000",
 					"path": [
 						"user",
-						"favourites"
+						"favourite"
 					]
 				}
 			},
@@ -217,6 +217,45 @@
 			"name": "http://localhost:3000/note/create",
 			"request": {
 				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Otra nota mas adentro adentrisimo4",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"urlencoded": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/note/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"note",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/user/5ee20fb0a2ed7997b72edca4",
+			"request": {
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
@@ -234,15 +273,15 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/note/create",
+					"raw": "http://localhost:3000/user/5ee20fb0a2ed7997b72edca4",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"note",
-						"create"
+						"user",
+						"5ee20fb0a2ed7997b72edca4"
 					]
 				}
 			},
