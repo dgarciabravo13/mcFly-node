@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const { MongoError } = require("mongodb");
 
-// HAY QUE PONER AQUÍ MONGODBURL CUANDO QUERAMOS SEEDEAR EN MONGODB ATLAS
 const dbUrl = process.env.DBURL;
 
 const dropIfExists = async (Model) => {
@@ -11,7 +10,7 @@ const dropIfExists = async (Model) => {
   } catch (e) {
     if (e instanceof MongoError) {
       console.log(
-        `You can´t delete the colection:${Model.collection.name}`
+        `No se puede borrar la colección ${Model.collection.name}. HA hA.`
       );
     } else {
       throw e;
