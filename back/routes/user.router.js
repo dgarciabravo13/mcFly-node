@@ -3,6 +3,7 @@ const UserModel = require("../models/User");
 const NoteModel = require("../models/Note");
 const router = express.Router();
 const passport = require("passport");
+const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
 
 // Login
 router.post("/login", (req, res, next) => {
@@ -37,7 +38,7 @@ router.get("/favourite", async (req,res,next) => {
 })
 
 //Logout
-router.get("/logout", (req, res, next) => {
+router.get("/logout",isLoggedIn(), (req, res, next) => {
   if (req.user) {
     req.logout();
     return res.status(200).json({ message: "Log out" });
@@ -49,7 +50,7 @@ router.get("/logout", (req, res, next) => {
 });
 
 //Add note to favourites into the user
-router.put("/addfavourite/:id", async (req, res, next) => {
+router.put("/addfavourite/:id",isLoggedIn(), async (req, res, next) => {
   try {
     const id = req.params.id;
     const userid = req.user.id;
@@ -66,7 +67,7 @@ router.put("/addfavourite/:id", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id",isLoggedIn(), async (req, res, next) => {
   try {
     const id = req.params.id;
     const userid = req.user.id;

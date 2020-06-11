@@ -2,13 +2,13 @@ const express = require("express");
 const UserModel = require("../models/User");
 const NoteModel = require("../models/Note");
 const router = express.Router();
+const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
 
 
 
 // GET All Notes
 router.get("/", async (req, res, next) => {
   try {
-    console.log(req.user)
     const notes = await NoteModel.find();
     return res.json(notes);
   } catch (error) {
@@ -26,7 +26,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/create", async (req, res, next) => {
+router.post("/create",isLoggedIn(), async (req, res, next) => {
   try{
     const {text} = req.body;
     const newNote = await NoteModel.create({text})
